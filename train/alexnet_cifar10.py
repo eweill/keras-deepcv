@@ -145,7 +145,7 @@ if __name__ == '__main__':
 	else:
 		print('[INFO] Training the model with data augmentation...')
 		# Data augmentation
-		dataget = ImageDataGenerator(
+		datagen = ImageDataGenerator(
 			featurewise_center=False,	# set input mean to 0 over dataset
 			samplewise_center=False,	# set each sample mean to 0
 			featurewise_std_normalization=False,	# divide inputs by std of dataset
