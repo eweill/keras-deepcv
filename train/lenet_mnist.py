@@ -1,5 +1,5 @@
 """
-Train a LeNet model with the MNIST data set
+Train a LeNet model with the MNIST dataset
 
 Print model:
 	python lenet_mnist.py --print_model
@@ -18,15 +18,16 @@ sys.path.append("..")
 
 # Import model architecture and data
 from models.classification import lenet
-from keras.datasets import mnist
 from keras.optimizers import SGD
-from keras.utils import np_utils
+#from keras.utils import np_utils
+from datasets import mnist
 
 # Import other necessary packages
 import numpy as np
 import argparse, cv2
 import matplotlib.pyplot as plt
 
+'''
 def get_mnist():
 	"""
 	Get the MNIST dataset.
@@ -61,6 +62,7 @@ def get_mnist():
 	test_labels = np_utils.to_categorical(test_labels, 10)
 
 	return train_data, train_labels, test_data, test_labels
+'''
 
 def draw_training_curve(history):
 	"""
@@ -147,7 +149,7 @@ if __name__ == '__main__':
 		metrics=["accuracy"])
 
 	# Get MNIST data
-	train_data, train_labels, test_data, test_labels = get_mnist()
+	train_data, train_labels, test_data, test_labels = mnist.get_data()
 
 	# Train the model
 	if args.train_model:
