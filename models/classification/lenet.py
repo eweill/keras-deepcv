@@ -15,6 +15,7 @@ BibTeX Citation:
 }
 """
 
+# Import necessary packages
 import argparse
 
 # Import necessary components to build LeNet
@@ -36,7 +37,7 @@ def lenet_model(img_shape=(28, 28, 1), n_classes=10, l2_reg=0.,
 	lenet.add(MaxPooling2D(pool_size=(2, 2), strides=(2, 2)))
 
 	lenet.add(Conv2D(50, (5, 5), padding="same",
-		input_shape=img_shape, kernel_regularizer=l2(l2_reg)))
+		kernel_regularizer=l2(l2_reg)))
 	lenet.add(Activation("relu"))
 	lenet.add(MaxPooling2D(pool_size=(2, 2), strides=(2, 2)))
 
