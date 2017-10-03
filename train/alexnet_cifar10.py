@@ -171,7 +171,7 @@ if __name__ == '__main__':
 		# Evaluate the model
 		print('[INFO] Evalauting the trained model...')
 		(loss, accuracy) = model.evaluate_generator(
-			datagen.flow(train_data, train_label,
+			datagen.flow(train_data, train_labels,
 				batch_size=128,
 				shuffle=False),
 			steps=test_data.shape[0] // 128,
