@@ -55,9 +55,32 @@ def lenet_model(img_shape=(28, 28, 1), n_classes=10, l2_reg=0.,
 	# Return the constructed network
 	return lenet
 
+def parse_args():
+	"""
+	Parse command line arguments.
+
+	Parameters:
+		None
+	Returns:
+		parser arguments
+	"""
+	parser = argparse.ArgumentParser(description='LeNet model')
+	optional = parser._action_groups.pop()
+	required = parser.add_argument_group('required arguments')
+	optional.add_argument('--print_model',
+		dest='print_model',
+		help='Print LeNet model',
+		action='store_true')
+	parser._action_groups.append(optional)
+	return parser.parse_args()
+
 if __name__ == "__main__":
+	# Command line parameters
+	args = parse_args()
+
 	# Create LeNet model
 	model = lenet_model()
 
 	# Print
-	model.summary()
+	if args.print_model:
+		model.summary()
