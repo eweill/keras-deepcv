@@ -5,11 +5,13 @@ Print model:
 	python lenet_mnist.py --print_model
 
 Train and save model:
-	python lenet_mnist.py --train_model --epochs 10 --save_model
+	python lenet_mnist.py --train_model --epochs 10 \
+		--save_weights data/lenet_mnist_trained.hdf5
 
 Train with pretrained weights:
 	python lenet_mnist.py --train_model --epochs 10 \
-		--save_model --weights data/lenet_mnist.hdf5
+		--save_weights data/lenet_mnist_trained.hdf5 \
+		--weights data/lenet_mnist.hdf5
 """
 import sys
 sys.path.append("..")
@@ -114,11 +116,11 @@ def parse_args():
 	optional.add_argument('-s', '--save_weights',
 		dest='save_weights',
 		help='Save the trained weights',
-		action='store_true')
+		default=None)
 	optional.add_argument('-w', '--weights',
 		dest='weights',
 		help='Path to weights (hdf5) file',
-		default='data/lenet_mnist.hdf5')
+		default=None)
 	optional.add_argument('-e', '--epochs',
 		dest='epochs',
 		help='Number of epochs for training',
@@ -132,7 +134,7 @@ if __name__ == '__main__':
 	args = parse_args()
 
 	# Construct LeNet model
-	if not args.save_weights:
+	if args.weights is None:
 		model = lenet.lenet_model()
 	else:
 		model = lenet.lenet_model(weights=args.weights)
@@ -166,6 +168,6 @@ if __name__ == '__main__':
 		# Visualize training history
 		draw_training_curve(history)
 
-	if args.save_weights:
+	if args.save_weights is not None:
 		print('[INFO] Saving the model weights to file...')
-		model.save_weights(args.weights, overwrite=True)
+		model.save_weights(args.save_weights, overwrite=True)
