@@ -19,81 +19,13 @@ sys.path.append("..")
 # Import model architecture and data
 from models.classification import lenet
 from keras.optimizers import SGD
-#from keras.utils import np_utils
 from datasets import mnist
+from utils import draw
 
 # Import other necessary packages
 import numpy as np
-import argparse, cv2
+import argparse, cv2, os
 import matplotlib.pyplot as plt
-
-'''
-def get_mnist():
-	"""
-	Get the MNIST dataset.
-	
-	Will download dataset if first time and will be downloaded
-	to ~/.keras/datasets/mnist.npz
-	Parameters:
-		None
-	Returns:
-		train_data - training data split
-		train_labels - training labels
-		test_data - test data split
-		test_labels - test labels
-	"""
-	print('[INFO] Loading the MNIST dataset...')
-	(train_data, train_labels), (test_data, test_labels) = mnist.load_data()
-
-	# Reshape the data from (samples, height, width) to
-	# (samples, height, width, depth) where depth is 1 channel (grayscale)
-	train_data = train_data[:, :, :, np.newaxis]
-	test_data = test_data[:, :, :, np.newaxis]
-
-	# Normalize the data
-	train_data = train_data / 255.0
-	test_data = test_data / 255.0
-
-	# Transform labels to one hot labels
-	# Example: '0' will become [1, 0, 0, 0, 0, 0, 0, 0, 0]
-	#          '1' will become [0, 1, 0, 0, 0, 0, 0, 0, 0]
-	#          and so on...
-	train_labels = np_utils.to_categorical(train_labels, 10)
-	test_labels = np_utils.to_categorical(test_labels, 10)
-
-	return train_data, train_labels, test_data, test_labels
-'''
-
-def draw_training_curve(history):
-	"""
-	Draw training curve
-
-	Parameters:
-		history - contains loss and accuracy from training
-	Returns:
-		None
-	"""
-	plt.figure(1)
-
-	# History for accuracy
-	plt.subplot(211)
-	plt.plot(history.history['acc'])
-	plt.plot(history.history['val_acc'])
-	plt.title('model accuracy')
-	plt.ylabel('accuracy')
-	plt.xlabel('epoch')
-	plt.legend(['train', 'test'], loc='upper left')
-
-	# History for loss
-	plt.subplot(212)
-	plt.plot(history.history['loss'])
-	plt.plot(history.history['val_loss'])
-	plt.title('model loss')
-	plt.ylabel('loss')
-	plt.xlabel('epoch')
-	plt.legend(['train', 'test'], loc='upper left')
-
-	plt.show()
 
 def parse_args():
 	"""
@@ -168,8 +100,13 @@ if __name__ == '__main__':
 		print('[INFO] accuracy: {:.2f}%'.format(accuracy * 100))
 
 		# Visualize training history
-		draw_training_curve(history)
+		draw.draw_training_curve(history)
 
+	# Save model and weights
 	if args.save_weights is not None:
 		print('[INFO] Saving the model weights to file...')
+		if not os.path.exists(os.path.dirname(args.save_weights)):
+			os.path.makedirs(os.path.dirname(args.save_weights))
+		if os.path.isfile(args.save_weights):
+			os.remove(args.save_weights)
 		model.save_weights(args.save_weights, overwrite=True)

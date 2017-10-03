@@ -22,7 +22,7 @@ from keras.layers.convolutional import Conv2D, MaxPooling2D, ZeroPadding2D
 from keras.layers.normalization import BatchNormalization
 from keras.regularizers import l2
 
-def alexnet_bn_model(img_shape=(224, 224, 3), n_classes=10, l2_reg=0.,
+def alexnet_model(img_shape=(224, 224, 3), n_classes=10, l2_reg=0.,
 	weights=None):
 
 	# Initialize model
@@ -78,42 +78,6 @@ def alexnet_bn_model(img_shape=(224, 224, 3), n_classes=10, l2_reg=0.,
 	alexnet.add(Dense(n_classes))
 	alexnet.add(BatchNormalization())
 	alexnet.add(Activation('softmax'))
-
-
-
-	#alexnet.add(Conv2D(64, (11, 11), padding="same",
-	#	input_shape=img_shape, kernel_regularizer=l2(l2_reg)))
-	#alexnet.add(BatchNormalization())
-	#alexnet.add(Activation('relu'))
-	#alexnet.add(MaxPooling2D(pool_size=(3, 3)))
-
-	#alexnet.add(Conv2D(128, (7, 7)))
-	#alexnet.add(BatchNormalization())
-	#alexnet.add(Activation('relu'))
-	#alexnet.add(MaxPooling2D(pool_size=(3, 3)))
-
-	#alexnet.add(Conv2D(192, (3, 3)))
-	#alexnet.add(BatchNormalization())
-	#alexnet.add(Activation('relu'))
-	#alexnet.add(MaxPooling2D(pool_size=(3, 3)))
-
-	#alexnet.add(Conv2D(256, (3, 3)))
-	#alexnet.add(BatchNormalization())
-	#alexnet.add(Activation('relu'))
-	#alexnet.add(MaxPooling2D(pool_size=(3, 3)))
-
-	#alexnet.add(Flatten())
-	#alexnet.add(Dense(4096, input_dim=12*12*256))
-	#alexnet.add(BatchNormalization())
-	#alexnet.add(Activation('relu'))
-	
-	#alexnet.add(Dense(4096, input_dim=4096))
-	#alexnet.add(BatchNormalization())
-	#alexnet.add(Activation('relu'))
-
-	#alexnet.add(Dense(n_classes, input_dim=4096))
-	#alexnet.add(BatchNormalization())
-	#alexnet.add(Activation('softmax'))
 
 	if weights is not None:
 		alexnet.load_weights(weights)
