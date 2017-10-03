@@ -6,8 +6,8 @@ This repository contains model definitions, training scripts, and other examples
 
 ### Classification
 
-- [x] LeNet [Paper](http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf)
-- [ ] AlexNet [Paper](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf)
+- [x] LeNet [Paper](http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf) [Model](models/classification/lenet.py)
+- [ ] AlexNet [Paper](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf) [Model](models/classification/alexnet.py)
 - [ ] VGG16 and VGG19 [Paper](https://arxiv.org/pdf/1409.1556.pdf)
 - [ ] ResNet [Paper](https://arxiv.org/pdf/1512.03385v1.pdf)
 - [ ] YOLO9000 [Paper](https://arxiv.org/pdf/1612.08242.pdf)
@@ -28,6 +28,37 @@ This repository contains model definitions, training scripts, and other examples
 - [ ] PSPNet [Paper](https://arxiv.org/pdf/1612.01105.pdf)
 - [ ] Mask RCNN [Paper](https://arxiv.org/pdf/1703.06870.pdf)
 
+## Datasets
+
+### Classification
+
+- [ ] MNIST
+- [ ] CIFAR-10/CIFAR-100
+- [ ] ImageNet
+- [ ] Pascal VOC
+
+### Detection
+- [ ] Pascal VOC
+- [ ] LISA Traffic Sign
+- [ ] KITTI
+- [ ] MSCOCO
+
+### Segmentation
+- [ ] CamVid
+- [ ] Cityscapes
+- [ ] Pascal VOC
+- [ ] KITTI
+- [ ] SYNTHIA
+- [ ] GTA-V Segmentation
+- [ ] MSCOCO
+
+## Prerequisites
+
+For the models in thie repo, [Keras](https://github.com/fchollet/keras) and [Tensorflow](https://github.com/tensorflow/tensorflow) are required.  Make sure the latest versions are installed.
+
+After these packages have been installed, a few other packages are required (which can be found in requirements.txt)
+
+	pip install -r requirements.txt
 
 ## Installation
 
