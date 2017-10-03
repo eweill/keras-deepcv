@@ -1,4 +1,16 @@
-### Train a LeNet model with the MNIST data set
+"""
+Train a LeNet model with the MNIST data set
+
+Print model:
+	python lenet_mnist.py --print_model
+
+Train and save model:
+	python lenet_mnist.py --train_model --epochs 10 --save_model
+
+Train with pretrained weights:
+	python lenet_mnist.py --train_model --epochs 10 \
+		--save_model --weights data/lenet_mnist.hdf5
+"""
 import sys
 sys.path.append("..")
 
