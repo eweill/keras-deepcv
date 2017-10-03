@@ -21,7 +21,7 @@ def get_data(num_classes=10):
 		test_data - test data split
 		test_labels - test labels
 	"""
-	print('[INFO] Loading the MNIST dataset...')
+	print('[INFO] Loading the CIFAR10 dataset...')
 	(train_data, train_labels), (test_data, test_labels) = cifar10.load_data()
 
 	# Transform labels to one hot labels
