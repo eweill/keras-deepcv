@@ -1,6 +1,6 @@
 # Keras Deep Computer Vision
 
-This repository contains model definitions, training scripts, and other examples for Keras implementations for classification, detection, and segmentation (computer vision).
+This repository contains model definitions, training scripts, and other examples for Keras (Tensorflow backend) implementations for classification, detection, and segmentation (computer vision).
 
 ## Models
 
@@ -59,14 +59,6 @@ For the models in thie repo, [Keras](https://github.com/fchollet/keras) and [Ten
 After these packages have been installed, a few other packages are required (which can be found in requirements.txt)
 
 	pip install -r requirements.txt
-
-## Installation
-
-To create a requirements.txt, install pipreqs and run it.
-
-	pip install pipreqs
-
-	pipreqs .
 
 ## Acknowledgments
 
