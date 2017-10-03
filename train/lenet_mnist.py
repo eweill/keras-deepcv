@@ -111,7 +111,7 @@ def parse_args():
 		dest='train_model',
 		help='Train LeNet on MNIST',
 		action='store_true')
-	optional.add_argument('-s''--save_weights',
+	optional.add_argument('-s', '--save_weights',
 		dest='save_weights',
 		help='Save the trained weights',
 		action='store_true')
