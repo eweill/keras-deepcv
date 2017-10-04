@@ -126,7 +126,7 @@ if __name__ == '__main__':
 		print('[INFO] accuracy: {:.2f}%'.format(accuracy * 100))
 
 		# Visualize training history
-		draw_training_curve(history)
+		draw.draw_training_curve(history)
 
 	# Train with data augmentation
 	else:
