@@ -24,6 +24,7 @@ from keras.preprocessing.image import ImageDataGenerator
 from keras.optimizers import rmsprop
 from datasets import cifar10
 from datasets import mnist
+from utils import draw
 
 # Import other necessary packages
 import numpy as np
