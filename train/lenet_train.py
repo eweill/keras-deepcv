@@ -60,6 +60,10 @@ def parse_args():
 		help='Number of epochs for training',
 		type=int,
 		default=20)
+	optional.add_argument('--viz_training',
+		dest='viz_training',
+		help='Visualize the training curve',
+		action='store_true')
 	parser._action_groups.append(optional)
 	return parser.parse_args()
 
@@ -100,7 +104,8 @@ if __name__ == '__main__':
 		print('[INFO] accuracy: {:.2f}%'.format(accuracy * 100))
 
 		# Visualize training history
-		draw.draw_training_curve(history)
+		if args.viz_training:
+			draw.draw_training_curve(history)
 
 	# Save model and weights
 	if args.save_weights is not None:

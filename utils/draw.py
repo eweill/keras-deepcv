@@ -1,3 +1,5 @@
+import matplotlib.pyplot as plt
+
 def draw_training_curve(history):
 	"""
 	Draw training curve

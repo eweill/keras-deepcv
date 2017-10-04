@@ -166,7 +166,8 @@ if __name__ == '__main__':
 		print('[INFO] accuracy: {:.2f}%'.format(accuracy * 100))
 
 		# Visualize training history
-		draw.draw_training_curve(history)
+		if args.viz_training:
+			draw.draw_training_curve(history)
 
 	# Save model and weights
 	if args.save_weights is not None:
