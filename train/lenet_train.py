@@ -5,13 +5,21 @@ Print model:
 	python lenet_mnist.py --print_model
 
 Train and save model:
-	python lenet_mnist.py --train_model --epochs 10 \
-		--save_weights data/lenet_mnist_trained.hdf5
+	python lenet_mnist.py --print_model --train_model \
+		--epochs 10 \
+		--save_weights ../data/lenet_mnist.hdf5
 
 Train with pretrained weights:
-	python lenet_mnist.py --train_model --epochs 10 \
-		--save_weights data/lenet_mnist_trained.hdf5 \
-		--weights data/lenet_mnist.hdf5
+	python lenet_mnist.py --print_model --train_model \
+		--epochs 10 \
+		--save_weights ../data/lenet_mnist.hdf5 \
+		--weights ../data/lenet_mnist.hdf5
+
+Visualize training curves
+	python lenet_train.py --print_model --train_model \
+		--epochs 10 \
+		--save_weights ../data/lenet_mnist_5.hdf5 \
+		--viz_training
 """
 import sys
 sys.path.append("..")

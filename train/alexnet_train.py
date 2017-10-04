@@ -73,6 +73,10 @@ def parse_args():
 		dest='data_augmentation',
 		help='Use data augmentations for input',
 		action='store_true')
+	optional.add_argument('--viz_training',
+		dest='viz_training',
+		help='Visualize the training curve',
+		action='store_true')
 	parser._action_groups.append(optional)
 	return parser.parse_args()
 
@@ -127,7 +131,8 @@ if __name__ == '__main__':
 		print('[INFO] accuracy: {:.2f}%'.format(accuracy * 100))
 
 		# Visualize training history
-		draw.draw_training_curve(history)
+		if args.viz_training:
+			draw.draw_training_curve(history)
 
 	# Train with data augmentation
 	else:
