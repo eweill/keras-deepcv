@@ -81,15 +81,15 @@ if __name__ == '__main__':
 
 	# Construct AlexNet model
 	if args.weights is None:
-		if dataset == 'mnist':
+		if args.dataset == 'mnist':
 			model = alexnet.alexnet_model(img_shape=(28, 28, 1))
-		elif dataset == 'cifar10':
+		elif args.dataset == 'cifar10':
 			model = alexnet.alexnet_model(img_shape=(32, 32, 3))
 	else:
-		if dataset == 'mnist':
+		if args.dataset == 'mnist':
 			model = alexnet.alexnet_model(img_shape=(28, 28, 1),
 					weights=args.weights)
-		elif dataset == 'cifar10':
+		elif args.dataset == 'cifar10':
 			model = alexnet.alexnet_model(img_shape=(32, 32, 3),
 					weights=args.weights)
 
@@ -103,9 +103,9 @@ if __name__ == '__main__':
 		metrics=['accuracy'])
 
 	# Get data
-	if dataset == 'mnist':
+	if args.dataset == 'mnist':
 		train_data, train_labels, test_data, test_labels = mnist.get_data()
-	elif dataset == 'cifar10':
+	elif args.dataset == 'cifar10':
 		train_data, train_labels, test_data, test_labels = cifar10.get_data()
 
 	# Train with no data augmentation
