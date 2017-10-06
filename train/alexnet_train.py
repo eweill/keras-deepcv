@@ -2,7 +2,7 @@
 Train an AlexNet model with the MNIST/CIFAR10 dataset
 
 Print model:
-	python alexnet_train.py --print_model --dataset mnist
+	python alexnet_train.py --print_model
 
 Train and save model:
 	python alexnet_train.py --train_model --epochs 10 \
@@ -47,7 +47,7 @@ def parse_args():
 		dest='dataset',
 		help='Choice of dataset to train model',
 		choices=['mnist', 'cifar10'],
-		default='mnist')
+		default=None)
 	optional.add_argument('--print_model',
 		dest='print_model',
 		help='Print LeNet model',
@@ -108,6 +108,9 @@ if __name__ == '__main__':
 		metrics=['accuracy'])
 
 	# Get data
+	if args.dataset == None:
+		print('No dataset given...\nExiting...')
+		exit(0)
 	if args.dataset == 'mnist':
 		train_data, train_labels, test_data, test_labels = mnist.get_data()
 	elif args.dataset == 'cifar10':
