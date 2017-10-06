@@ -107,7 +107,7 @@ if __name__ == "__main__":
 	# Command line parameters
 	args = parse_args()
 
-	# Create LeNet model
+	# Create AlexNet model
 	model = alexnet_model()
 
 	# Print
