@@ -34,6 +34,7 @@ This repository contains model definitions, training scripts, and other examples
 
 - [x] MNIST
 - [x] CIFAR-10
+- [ ] MNIST-Fashion
 - [ ] ImageNet
 - [ ] Pascal VOC
 
