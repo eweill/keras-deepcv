@@ -8,7 +8,7 @@ This repository contains model definitions, training scripts, and other examples
 
 - [x] LeNet [Paper](http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf) [Model](models/classification/lenet.py)
 - [x] AlexNet [Paper](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf) [Model](models/classification/alexnet.py)
-- [x] VGG16 and VGG19 [Paper](https://arxiv.org/pdf/1409.1556.pdf)
+- [x] VGG16 and VGG19 [Paper](https://arxiv.org/pdf/1409.1556.pdf) [Model](models/classification/vgg.py)
 - [ ] ResNet [Paper](https://arxiv.org/pdf/1512.03385v1.pdf)
 - [ ] YOLO9000 [Paper](https://arxiv.org/pdf/1612.08242.pdf)
 - [ ] DenseNet [Paper](https://arxiv.org/pdf/1608.06993.pdf)
